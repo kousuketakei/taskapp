@@ -60,7 +60,7 @@ class inputViewController: UIViewController {
             content.body = task.contents
         }
         content.sound = UNNotificationSound.default()
-    }
+    
     
     //ローカル通知が発動するtrigger(日付マッチ)を作成
     let calendar = Calendar.current
@@ -78,14 +78,14 @@ class inputViewController: UIViewController {
     
     }
     
-    //ローカル通知を登録
-    center.getPendingNotificationRequests{ (UNUserNotificationRequests { (requests: [UNNotificationRequest]) in
-        for request in requests {
-            print("/---------")
-            print(request)
-            print("/---------")
-        }
-        
+    //未通知のローカル通知一覧をログ出力
+    center.getPendingNotificationRequests{ (requests: [UNNotificationRequest]) in
+    for request in requests {
+    print("/---------")
+    print(request)
+    print("/---------")
+    }
+    
     }
     
     
@@ -96,7 +96,7 @@ class inputViewController: UIViewController {
         view.endEditing(true)
     }
     
-    
+    }
     /*
      // MARK: - Navigation
      
@@ -108,3 +108,4 @@ class inputViewController: UIViewController {
      */
     
 }
+

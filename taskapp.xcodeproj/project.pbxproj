@@ -15,6 +15,7 @@
 		5A0D3EE82351EF670098EB11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A0D3EE62351EF670098EB11 /* LaunchScreen.storyboard */; };
 		5A0D3EF32351EF670098EB11 /* taskappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D3EF22351EF670098EB11 /* taskappTests.swift */; };
 		5A0D3EFE2351EF670098EB11 /* taskappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D3EFD2351EF670098EB11 /* taskappUITests.swift */; };
+		5A3107C1235AE1E70047BE14 /* inputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3107C0235AE1E70047BE14 /* inputViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		5A0D3EF92351EF670098EB11 /* taskappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = taskappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A0D3EFD2351EF670098EB11 /* taskappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskappUITests.swift; sourceTree = "<group>"; };
 		5A0D3EFF2351EF670098EB11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A3107C0235AE1E70047BE14 /* inputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				5A0D3EE42351EF670098EB11 /* Assets.xcassets */,
 				5A0D3EE62351EF670098EB11 /* LaunchScreen.storyboard */,
 				5A0D3EE92351EF670098EB11 /* Info.plist */,
+				5A3107C0235AE1E70047BE14 /* inputViewController.swift */,
 			);
 			path = taskapp;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				5A0D3EE02351EF650098EB11 /* ViewController.swift in Sources */,
 				5A0D3EDC2351EF650098EB11 /* AppDelegate.swift in Sources */,
 				5A0D3EDE2351EF650098EB11 /* SceneDelegate.swift in Sources */,
+				5A3107C1235AE1E70047BE14 /* inputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

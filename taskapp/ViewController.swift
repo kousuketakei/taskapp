@@ -70,7 +70,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let inputViewController: inputViewController = segue.destination as! inputViewController
         if segue.identifier == "cellSegue" {
-            let indexPath = self.tableView.indexPathForSelectedRowinputViewController.task = taskArray[indexPath!.row]
+            let indexPath = self.tableView.indexPathForSelectedRow
+            inputViewController.task = taskArray[indexPath!.row]
         } else {
             let task = Task()
             task.date = Date()

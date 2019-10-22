@@ -24,11 +24,11 @@ class inputViewController: UIViewController {
         super.viewDidLoad()
         
         //背景をタップしたらdismissKeyboardを呼ぶように設定する
-        let tapGesture = UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
         
-        titleTextField.text = termios.title
-        contentsTextView.text = task.contens
+        titleTextField.text = task.title
+        contentsTextView.text = task.contents
         datePicker.date = task.date
         
         // Do any additional setup after loading the view.
@@ -54,19 +54,19 @@ class inputViewController: UIViewController {
         } else {
             content.title = task.title
         }
-        if task.contents = "" {
+        if task.contents == "" {
             content.body = "(内容なし)"
         } else {
             content.body = task.contents
         }
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
     
     
     //ローカル通知が発動するtrigger(日付マッチ)を作成
     let calendar = Calendar.current
-    let dateComponents = Calendar.dateComponents([.year, .month, .day, .hour, .minute], from: task.date)
+    let dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: task.date)
     let trigger = UNCalendarNotificationTrigger.init(dateMatching:
-        DateComponents, repeats: false)
+        dateComponents, repeats: false)
     
     //identifier, content, triggerからローカル通知を作成（identifierが同じだとローカル通知を上書き保存)
     let request = UNNotificationRequest.init(identifier: String(task.id), content: content, trigger: trigger)
@@ -91,7 +91,7 @@ class inputViewController: UIViewController {
     
     
     
-    @objc func dismissKeyboard() {
+        func dismissKeyboard() {
         //キーボードを閉じる
         view.endEditing(true)
     }

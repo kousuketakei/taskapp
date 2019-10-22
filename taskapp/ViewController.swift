@@ -25,6 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
@@ -38,6 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //各セルの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //再利用可能なcellを設定する
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         return cell
     }
@@ -60,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //データベースから削除する
             try! realm.write {
                 self.realm.delete(self.taskArray[indexPath.row])
-                tableView.deleteRows(at: [IndexPath], with: .fade)
+                tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
     }
@@ -68,14 +70,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let inputViewController: inputViewController = segue.destination as! inputViewController
         if segue.identifier == "cellSegue" {
-            let indexPath = self.tableView.indexPathForSelectedRowinputViewController.task = taskArray[index!.row]
+            let indexPath = self.tableView.indexPathForSelectedRowinputViewController.task = taskArray[indexPath!.row]
         } else {
             let task = Task()
             task.date = Date()
             
-            let allTask = realm.object(Task.self)
-            if allTask.count != 0 {
-                task.id = allTask.max(ofProperty: "id")! + 1
+            let allTasks = realm.objects(Task.self)
+            if allTasks.count != 0 {
+                task.id = allTasks.max(ofProperty: "id")! + 1
             }
             
             inputViewController.task = task
@@ -88,7 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     //Deleteボタンが押された時に呼ばれるメソッド
-    func tableview(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle,forRowAt indexPath: IndexPath) {
+    func tableview(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
             //削除されたタスクを取得する
@@ -100,7 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //データベースから削除する
             try! realm.write {
                 self.realm.delete(task)
-                tableView.deleteRows(at: [IndexPath], with: .fade)
+                tableView.deleteRows(at: [indexPath], with: .fade)
             }
             
             //未通知のローカル通知一覧をログ出力

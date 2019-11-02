@@ -39,8 +39,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //各セルの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //再利用可能なcellを設定する
+        //再利用可能なcellを得る
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        //Cellに値を設定する
+        let task = taskArray[indexPath.row]
+        cell.textLabel?.text = task.title
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyy-MM-dd HH:mm"
+        
+        let dateString: String = formatter.string(from: task.date)
+        cell.detailTextLabel?.text = dateString
+        
         return cell
     }
     
